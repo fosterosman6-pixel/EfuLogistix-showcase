@@ -47,6 +47,12 @@ I draw each new screen first, then build it. These are the drawn mockups (not sc
 | --- | --- |
 | ![Office chat mockup](docs/mockups/office-chat-close.png) | ![Opening messages mockup](docs/mockups/message-opening.png) |
 
+## Booking flow and delivery
+
+A passenger picks the route and a car on that road, books seats at the fixed fare and gets a 4-digit boarding code; the driver types it to mark them on board. Goods work the same way with a collection code for the receiver, and the sender decides what happens if delivery fails. Hiring a whole vehicle is priced per km, with nearby drivers offered first. Drawn mockups of the flow:
+
+![Booking a seat and sending goods](docs/mockups/booking-and-delivery.png)
+
 ## Tracking and route history
 
 Drivers' phones record a GPS trail (also offline); the office replays every trip with its stops, speed, cash and alerts. Stops longer than a few minutes are saved automatically and named when they match a known depot. Drawn mockups:
