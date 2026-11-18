@@ -35,6 +35,18 @@ Design choices worth a look:
 - **State:** one shared `AppState` (session, profile, truck) provided to the whole app with Provider and read with `Consumer`.
 - **Simple driver screens:** large codes instead of QR scanning, clear status at every step.
 
+## Design mockups
+
+I draw each new screen first, then build it. These are the drawn mockups (not screenshots) for recent features:
+
+| Admin Fares page on a phone | Driver Messages tab: chats and notifications |
+| --- | --- |
+| ![Fares mockup](docs/mockups/admin-fares.png) | ![Messages tab mockup](docs/mockups/driver-messages-tab.png) |
+
+| Office closes a chat, person asks for a new one | Every message can be opened |
+| --- | --- |
+| ![Office chat mockup](docs/mockups/office-chat-close.png) | ![Opening messages mockup](docs/mockups/message-opening.png) |
+
 ## Code samples in this repo
 
 The full source is private. These samples show how it is written:
