@@ -1,0 +1,52 @@
+name: Check Dart (no build)
+
+# Run by hand. Only analyses the code for errors; it does not build or keep any files.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  phone:
+    name: Check phone app
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Unpack the zip
+        run: if [ -f EfuLogistix_github.zip ]; then unzip -o -q EfuLogistix_github.zip; fi
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+      - name: Analyze
+        working-directory: phone
+        run: |
+          flutter create --org mw.efulogistix --project-name efulogistix_fleet --platforms android .
+          rm -f test/widget_test.dart
+          flutter pub get
+          flutter analyze --no-fatal-infos --no-fatal-warnings 2>&1 | tee analyze.txt
+          if grep -E "^\s*error •" analyze.txt; then echo "ERRORS FOUND"; exit 1; fi
+      - name: Run the tests
+        working-directory: phone
+        run: flutter test
+
+  admin:
+    name: Check admin app
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Unpack the zip
+        run: if [ -f EfuLogistix_github.zip ]; then unzip -o -q EfuLogistix_github.zip; fi
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+      - name: Analyze
+        working-directory: admin
+        run: |
+          flutter create --org mw.efulogistix --project-name efulogistix_admin --platforms web .
+          rm -f test/widget_test.dart
+          flutter pub get
+          flutter analyze --no-fatal-infos --no-fatal-warnings 2>&1 | tee analyze.txt
+          if grep -E "^\s*error •" analyze.txt; then echo "ERRORS FOUND"; exit 1; fi
