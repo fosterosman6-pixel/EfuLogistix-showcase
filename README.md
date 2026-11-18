@@ -47,6 +47,16 @@ I draw each new screen first, then build it. These are the drawn mockups (not sc
 | --- | --- |
 | ![Office chat mockup](docs/mockups/office-chat-close.png) | ![Opening messages mockup](docs/mockups/message-opening.png) |
 
+## Tracking and route history
+
+Drivers' phones record a GPS trail (also offline); the office replays every trip with its stops, speed, cash and alerts. Stops longer than a few minutes are saved automatically and named when they match a known depot. Drawn mockups:
+
+![Trip trail on the phone and in the admin panel](docs/mockups/trip-trail.png)
+
+![Route replay, stops list and alerts](docs/mockups/route-replay-stops.png)
+
+Related features: live vehicle map for owners and passengers, overspeed and unrecorded-stop alerts, and fake-GPS detection that raises a security alert.
+
 ## Code samples in this repo
 
 The full source is private. These samples show how it is written:
